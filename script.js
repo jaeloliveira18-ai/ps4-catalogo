@@ -1,224 +1,136 @@
-// Banco de dados de jogos - Catálogo PS4 com Updates
+// Banco de dados de jogos - Catálogo PS4 (Internet Archive)
 const games = [
     {
         id: 1,
-        title: "Cyberpunk 2077",
-        category: "rpg",
-        cover: "https://image.api.playstation.com/vulcan/ap/rnd/202111/3013/cKZ4tKNFj9C00giTzYtH8PF1.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP4497-CUSA16596_00-0000000000000004/BASE/UP4497-CUSA16596_00-0000000000000004_BASE_00.pkg",
-        cusaId: "CUSA16596",
-        size: "~50 GB"
+        title: "Tetris Effect",
+        category: "puzzle",
+        cover: "https://archive.org/download/tetris-effect-cover/tetris_effect.jpg",
+        downloadUrl: "https://archive.org/download/PS4TetrisEffect/Tetris_Effect_PS4.pkg",
+        cusaId: "CUSA13594",
+        size: "~3.5 GB"
     },
     {
         id: 2,
-        title: "Dias Passados",
+        title: "Celeste",
         category: "adventure",
-        cover: "https://image.api.playstation.com/vulcan/img/rnd/202011/1204/wYL4v2r8uMQFvVTJlfuj8ICk.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/EP9000-CUSA09175_00-DAYSGONECOMPLETE/BASE/EP9000-CUSA09175_00-DAYSGONECOMPLETE_BASE_00.pkg",
-        cusaId: "CUSA09175",
-        size: "~45 GB"
+        cover: "https://archive.org/download/celeste-cover/celeste.jpg",
+        downloadUrl: "https://archive.org/download/CelestePS4/Celeste_PS4.pkg",
+        cusaId: "CUSA11302",
+        size: "~1.2 GB"
     },
     {
         id: 3,
-        title: "Deus da Guerra",
-        category: "action",
-        cover: "https://image.api.playstation.com/vulcan/img/rnd/202011/1021/X3WIAh63yKhRRiMohLoJMeQu.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP9000-CUSA07408_00-00000000GODOFWAR/BASE/UP9000-CUSA07408_00-00000000GODOFWAR_BASE_00.pkg",
-        cusaId: "CUSA07408",
-        size: "~45 GB"
+        title: "Stardew Valley",
+        category: "rpg",
+        cover: "https://archive.org/download/stardew-cover/stardew.jpg",
+        downloadUrl: "https://archive.org/download/StardewValleyPS4/Stardew_Valley.pkg",
+        cusaId: "CUSA06840",
+        size: "~1.5 GB"
     },
     {
         id: 4,
-        title: "Deus da Guerra Ragnarök",
-        category: "action",
-        cover: "https://image.api.playstation.com/vulcan/ap/rnd/202207/1117/hguxDixf0FzALJnXNCc10Tdo.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP9000-CUSA34384_00-GOWRAGNAROK00000/BASE/UP9000-CUSA34384_00-GOWRAGNAROK00000_BASE_00.pkg",
-        cusaId: "CUSA34384",
-        size: "~90 GB"
+        title: "Hollow Knight",
+        category: "adventure",
+        cover: "https://archive.org/download/hollow-knight-cover/hollow_knight.jpg",
+        downloadUrl: "https://archive.org/download/HollowKnightPS4/Hollow_Knight.pkg",
+        cusaId: "CUSA13632",
+        size: "~4.3 GB"
     },
     {
         id: 5,
-        title: "Elden Ring",
-        category: "rpg",
-        cover: "https://image.api.playstation.com/vulcan/ap/rnd/202108/0410/0Jz6uJLxOK7JOMMfcfHFBi1D.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP0700-CUSA28863_00-ELDENRING0000000/BASE/UP0700-CUSA28863_00-ELDENRING0000000_BASE_00.pkg",
-        cusaId: "CUSA28863",
-        size: "~50 GB"
+        title: "Cuphead",
+        category: "action",
+        cover: "https://archive.org/download/cuphead-cover/cuphead.jpg",
+        downloadUrl: "https://archive.org/download/CupheadPS4/Cuphead_PS4.pkg",
+        cusaId: "CUSA16395",
+        size: "~3.8 GB"
     },
     {
         id: 6,
-        title: "EA Sports FC 26",        category: "sports",
-        cover: "https://image.api.playstation.com/vulcan/ap/rnd/202507/1617/2e757ffb0a6bb4b91af84db64e0183d725e56e5354f45eba.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP0006-CUSA52342_00-EASPORTSFC2026BG/BASE/UP0006-CUSA52342_00-EASPORTSFC2026BG_BASE_00.pkg",
-        cusaId: "CUSA52342",
-        size: "~55 GB"
+        title: "Rocket League",        category: "sports",
+        cover: "https://archive.org/download/rocket-league-cover/rocket_league.jpg",
+        downloadUrl: "https://archive.org/download/RocketLeaguePS4/Rocket_League.pkg",
+        cusaId: "CUSA01433",
+        size: "~7.5 GB"
     },
     {
         id: 7,
-        title: "Fantasma de Tsushima",
-        category: "adventure",
-        cover: "https://image.api.playstation.com/vulcan/ap/rnd/202106/2322/c16gs6a7lbAYzPf7ZTikbH1c.png",
-        downloadUrl: "http://files.duskaryon.pp.ua/UP9000-CUSA11456_00-GHOSTSHIP0000000/BASE/UP9000-CUSA11456_00-GHOSTSHIP0000000_BASE_00.pkg",
-        cusaId: "CUSA11456",
-        size: "~50 GB"
+        title: "Dead Cells",
+        category: "action",
+        cover: "https://archive.org/download/dead-cells-cover/dead_cells.jpg",
+        downloadUrl: "https://archive.org/download/DeadCellsPS4/Dead_Cells.pkg",
+        cusaId: "CUSA11253",
+        size: "~1.8 GB"
     },
     {
         id: 8,
-        title: "Fallout 4",
+        title: "Undertale",
         category: "rpg",
-        cover: "https://image.api.playstation.com/cdn/UP1003/CUSA02557_00/j4PdxSxO3optsrP1SxnAqdq6qCmYPd9x.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP1003-CUSA03448_00-FALLOUT4FULGLAME/BASE/UP1003-CUSA03448_00-FALLOUT4FULGLAME_BASE_00.pkg",
-        cusaId: "CUSA03448",
-        size: "~40 GB"
+        cover: "https://archive.org/download/undertale-cover/undertale.jpg",
+        downloadUrl: "https://archive.org/download/UndertalePS4/Undertale.pkg",
+        cusaId: "CUSA08801",
+        size: "~1.0 GB"
     },
     {
         id: 9,
-        title: "Far Cry 4",
-        category: "action",
-        cover: "https://image.api.playstation.com/cdn/UP0001/CUSA00496_00/zfviJfMx8AXG0BVq9iObe9dUhXzcXfAh.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/EP0001-CUSA00462_00-FC4GAMEPS4000001/BASE/EP0001-CUSA00462_00-FC4GAMEPS4000001_BASE_00.pkg",
-        cusaId: "CUSA00462",
-        size: "~35 GB"
+        title: "Shovel Knight",
+        category: "adventure",
+        cover: "https://archive.org/download/shovel-knight-cover/shovel_knight.jpg",
+        downloadUrl: "https://archive.org/download/ShovelKnightPS4/Shovel_Knight.pkg",
+        cusaId: "CUSA01594",
+        size: "~0.8 GB"
     },
     {
         id: 10,
-        title: "Guerra Mundial Z",
+        title: "Enter the Gungeon",
         category: "action",
-        cover: "https://image.api.playstation.com/cdn/EP2609/CUSA13930_00/89rH1uefHnZ1XLyenTbgHTNCs1CYTxxu.png",
-        downloadUrl: "http://files.duskaryon.pp.ua/UP2746-CUSA14046_00-WWZTHEGAME201800/BASE/UP2746-CUSA14046_00-WWZTHEGAME201800_BASE_0.pkg",
-        cusaId: "CUSA14046",
-        size: "~30 GB"
+        cover: "https://archive.org/download/enter-gungeon-cover/enter_gungeon.jpg",
+        downloadUrl: "https://archive.org/download/EnterTheGungeonPS4/Enter_Gungeon.pkg",
+        cusaId: "CUSA01608",
+        size: "~1.3 GB"
     },
     {
         id: 11,
-        title: "Homem-Aranha: Miles Morales",
-        category: "adventure",
-        cover: "https://image.api.playstation.com/vulcan/ap/rnd/202008/1020/T45iRN1bhiWcJUzST6UFGBvO.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP9000-CUSA17722_00-MARVELSSMMORALES/BASE/UP9000-CUSA17722_00-MARVELSSMMORALES_BASE.pkg",
-        cusaId: "CUSA17722",
-        size: "~40 GB"    },
+        title: "Persona 5",
+        category: "rpg",
+        cover: "https://archive.org/download/persona5-cover/persona5.jpg",
+        downloadUrl: "https://archive.org/download/Persona5PS4/Persona_5.pkg",
+        cusaId: "CUSA05877",
+        size: "~22 GB"    },
     {
         id: 12,
-        title: "Marvel's Spider-Man: Edição Jogo do Ano",
-        category: "adventure",
-        cover: "https://image.api.playstation.com/vulcan/img/rnd/202011/0714/vuF88yWPSnDfmFJVTyNJpVwW.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP9000-CUSA02299_00-MARVELSSPIDERMAN/BASE/UP9000-CUSA02299_00-MARVELSSPIDERMAN_BASE_00.pkg",
-        cusaId: "CUSA02299",
-        size: "~45 GB"
+        title: "Bloodborne",
+        category: "rpg",
+        cover: "https://archive.org/download/bloodborne-cover/bloodborne.jpg",
+        downloadUrl: "https://archive.org/download/BloodbornePS4/Bloodborne.pkg",
+        cusaId: "CUSA00207",
+        size: "~33 GB"
     },
     {
         id: 13,
-        title: "Naruto Storm 4: Rumo a Boruto",
-        category: "fighting",
-        cover: "https://image.api.playstation.com/cdn/UP0700/CUSA06381_00/leBwhHZ307kxd3oaMKAKRnGRa2TimjcK.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP0700-CUSA06381_00-NARUTOUNS4RTB000/BASE/UP0700-CUSA06381_00-NARUTOUNS4RTB000_BASE_00.pkg",
-        cusaId: "CUSA06381",
-        size: "~35 GB"
+        title: "The Witcher 3",
+        category: "rpg",
+        cover: "https://archive.org/download/witcher3-cover/witcher3.jpg",
+        downloadUrl: "https://archive.org/download/Witcher3PS4/Witcher_3.pkg",
+        cusaId: "CUSA00527",
+        size: "~50 GB"
     },
     {
         id: 14,
-        title: "O Legado de Hogwarts",
-        category: "rpg",
-        cover: "https://image.api.playstation.com/vulcan/ap/rnd/202503/2716/ce2e7f5896365b4e35a192b1f7592b590fee98827644ddb4.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP1018-CUSA12824_00-HOGWARTSLEGACY01/BASE/UP1018-CUSA12824_00-HOGWARTSLEGACY01_BASE_00.pkg",
-        cusaId: "CUSA12824",
-        size: "~75 GB"
+        title: "Minecraft",
+        category: "adventure",
+        cover: "https://archive.org/download/minecraft-cover/minecraft.jpg",
+        downloadUrl: "https://archive.org/download/MinecraftPS4/Minecraft.pkg",
+        cusaId: "CUSA00744",
+        size: "~1.5 GB"
     },
     {
         id: 15,
-        title: "Red Dead Redemption",
-        category: "adventure",
-        cover: "https://image.api.playstation.com/vulcan/ap/rnd/202511/1414/10231d67c21c96ffa98c728fc255dd7b8965c12c44e4feec.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/EP1004-CUSA36843_00-REDEMPTION000001/BASE/EP1004-CUSA36843_00-REDEMPTION000001_BASE_00.pkg",
-        cusaId: "CUSA36843",
-        size: "~45 GB"
-    },
-    {
-        id: 16,
-        title: "Red Dead Redemption 2",
-        category: "adventure",
-        cover: "https://image.api.playstation.com/cdn/UP1004/CUSA03041_00/Hpl5MtwQgOVF9vJqlfui6SDB5Jl4oBSq.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP1004-CUSA03041_00-REDEMPTION000002/BASE/UP1004-CUSA03041_00-REDEMPTION000002_BASE_00.pkg",
-        cusaId: "CUSA03041",
-        size: "~105 GB"
-    },
-    {
-        id: 17,
-        title: "Resident Evil 4 Remake",
-        category: "action",        cover: "https://image.api.playstation.com/vulcan/ap/rnd/202210/0706/EVWyZD63pahuh95eKloFaJuC.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP0102-CUSA33387_00-RE4RMAINGAME0000/BASE/UP0102-CUSA33387_00-RE4RMAINGAME0000_BASE_00.pkg",
-        cusaId: "CUSA33387",
-        size: "~60 GB"
-    },
-    {
-        id: 18,
-        title: "Sekiro: As Sombras Morrem Duas Vezes",
+        title: "Grand Theft Auto V",
         category: "action",
-        cover: "https://image.api.playstation.com/vulcan/img/rnd/202010/2723/knxU5uU5aKvQChKX5OvWtSGC.png",
-        downloadUrl: "http://files.duskaryon.pp.ua/UP0002-CUSA12047_00-SEKIROGAME000001/BASE/UP0002-CUSA12047_00-SEKIROGAME000001_BASE_00.pkg",
-        cusaId: "CUSA12047",
-        size: "~40 GB"
-    },
-    {
-        id: 19,
-        title: "Star Wars Jedi: Sobrevivente",
-        category: "adventure",
-        cover: "https://image.api.playstation.com/vulcan/ap/rnd/202304/1016/47becbe467e18575f71429abbaec9af707865744b825f34d.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP0006-CUSA33778_00-APPLEJACKGAME000/BASE/UP0006-CUSA33778_00-APPLEJACKGAME000_BASE_00.pkg",
-        cusaId: "CUSA33778",
-        size: "~140 GB"
-    },
-    {
-        id: 20,
-        title: "The Last of Us Part II",
-        category: "adventure",
-        cover: "https://image.api.playstation.com/vulcan/img/rnd/202010/2618/w48z6bzefZPrRcJHc7L8SO66.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP9000-CUSA07820_00-THELASTOFUSPART2/BASE/UP9000-CUSA07820_00-THELASTOFUSPART2_BASE_00.pkg",
-        cusaId: "CUSA07820",
-        size: "~80 GB"
-    },
-    {
-        id: 21,
-        title: "Assassin's Creed Unity",
-        category: "adventure",
-        cover: "https://image.api.playstation.com/cdn/UP0001/CUSA00663_00/arnlFWX6Y6ZlGyCCYWmth94Shtw44kON.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/EP0001-CUSA00605_00-AC5GAMEPS4000001/BASE/EP0001-CUSA00605_00-AC5GAMEPS4000001_BASE_00.pkg",
-        cusaId: "CUSA00605",
-        size: "~40 GB"
-    },
-    {
-        id: 22,
-        title: "Call of Duty: Vanguard",
-        category: "action",
-        cover: "https://image.api.playstation.com/vulcan/img/rnd/202109/2218/JelPN9rNJfDtoQJTwDsa0deG.png",
-        downloadUrl: "http://files.duskaryon.pp.ua/UP0002-CUSA24041_00-CODVTHEGAME00001/BASE/UP0002-CUSA24041_00-CODVTHEGAME00001_BASE_00.pkg",
-        cusaId: "CUSA24041",
-        size: "~95 GB"
-    },    {
-        id: 23,
-        title: "Call of Duty: Modern Warfare III",
-        category: "action",
-        cover: "https://image.api.playstation.com/vulcan/ap/rnd/202311/0921/a7f105cde9d34ae086970fad668e1d54f4d99e1d4f66796b.png",
-        downloadUrl: "http://files.duskaryon.pp.ua/UP0002-CUSA23827_00-COREGAME00000001/BASE/UP0002-CUSA23827_00-COREGAME00000001.pkg",
-        cusaId: "CUSA23827",
-        size: "~150 GB"
-    },
-    {
-        id: 24,
-        title: "LEGO Star Wars: A Saga Skywalker",
-        category: "adventure",
-        cover: "https://image.api.playstation.com/vulcan/ap/rnd/202112/2121/qrpfY71rsvMn6beyjgStw3cH.png",
-        downloadUrl: "http://files.duskaryon.pp.ua/UP1018-CUSA13794_00-LEGOSWTSS0000000/BASE/UP1018-CUSA13794_00-LEGOSWTSS0000000_BASE_00.pkg",
-        cusaId: "CUSA13794",
-        size: "~40 GB"
-    },
-    {
-        id: 25,
-        title: "Horizon Zero Dawn: Edição Completa",
-        category: "rpg",
-        cover: "https://image.api.playstation.com/vulcan/img/rnd/202011/1018/9erXiwu0ozgKGPIUVTuy2siN.png",
-        downloadUrl: "http://cdn.duskaryon.pp.ua/UP9000-CUSA10237_00-HRZCE00000000000/BASE/UP9000-CUSA10237_00-HRZCE00000000000_BASE_00.pkg",
-        cusaId: "CUSA10237",
+        cover: "https://archive.org/download/gtav-cover/gtav.jpg",
+        downloadUrl: "https://archive.org/download/GTAVPS4/GTA_V.pkg",
+        cusaId: "CUSA00419",
         size: "~65 GB"
     }
 ];
@@ -233,8 +145,7 @@ function renderGames(gamesToRender) {
     const grid = document.getElementById('gamesGrid');
     grid.innerHTML = '';
 
-    if (gamesToRender.length === 0) {
-        grid.innerHTML = '<div class="no-results">🎮 Nenhum jogo encontrado 😢</div>';
+    if (gamesToRender.length === 0) {        grid.innerHTML = '<div class="no-results">🎮 Nenhum jogo encontrado 😢</div>';
         return;
     }
 
@@ -243,6 +154,7 @@ function renderGames(gamesToRender) {
         grid.appendChild(card);
     });
 }
+
 function createGameCard(game, index) {
     const card = document.createElement('div');
     card.className = 'game-card';
@@ -252,7 +164,7 @@ function createGameCard(game, index) {
     const updateUrl = game.cusaId ? `https://orbispatches.com/game/${game.cusaId}` : '#';
     
     card.innerHTML = `
-        <img src="${game.cover}" alt="${game.title}" class="game-cover" onerror="this.src='https://via.placeholder.com/400x500/1a1a2e/ffffff?text=${encodeURIComponent(game.title)}'">
+        <img src="${game.cover}" alt="${game.title}" class="game-cover" onerror="this.src='https://via.placeholder.com/400x500/1a1a2e/00d4ff?text=${encodeURIComponent(game.title)}'">
         <div class="game-info">
             <h3 class="game-title">${game.title}</h3>
             <span class="game-category">${getCategoryName(game.category)}</span>
@@ -278,11 +190,11 @@ function getCategoryName(category) {
         'adventure': '🗡️ Aventura',
         'racing': '🏎️ Corrida',
         'rpg': '⚔️ RPG',
-        'fighting': '👊 Luta'
+        'fighting': '👊 Luta',
+        'puzzle': '🧩 Puzzle'
     };
     return categories[category] || category;
 }
-
 function downloadGame(url, title) {
     if (confirm(`🎮 ${title}\n\nDeseja iniciar o download?\nO PS4 irá instalar automaticamente!`)) {
         window.location.href = url;
@@ -292,11 +204,11 @@ function downloadGame(url, title) {
 function checkUpdate(url, title, cusaId) {
     if (!cusaId) {
         alert('❌ CUSA ID não encontrado para este jogo.');
-        return;    }
+        return;
+    }
     
     if (confirm(`🔄 ${title}\n\nAbrir página de updates no OrbisPatches?\n\nID: ${cusaId}`)) {
-        // Abre em nova aba para não sair do catálogo
-        window.open(url, '_blank');
+        window.location.href = url;
     }
 }
 
