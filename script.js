@@ -1,10 +1,10 @@
-// Banco de dados de jogos (você pode mover isso para um jogos.json)
+// Banco de dados de jogos
 const games = [
     {
         id: 1,
         title: "eFootball 2026",
         category: "sports",
-        cover: "https://via.placeholder.com/300x400/1a1a2e/00d4ff?text=eFootball+2026",
+        cover: "https://via.placeholder.com/400x500/1a1a2e/00d4ff?text=eFootball+2026",
         downloadUrl: "https://archive.org/download/efootball2026/efootball2026.pkg",
         size: "45 GB"
     },
@@ -12,24 +12,45 @@ const games = [
         id: 2,
         title: "Hollow Knight: Silksong",
         category: "adventure",
-        cover: "https://via.placeholder.com/300x400/1a1a2e/7b2cbf?text=Silksong",
+        cover: "https://via.placeholder.com/400x500/2d1b4e/7b2cbf?text=Silksong",
         downloadUrl: "https://archive.org/download/silksong/silksong.pkg",
         size: "12 GB"
     },
     {
         id: 3,
-        title: "Naruto Shippuden: Ultimate Ninja Storm 4",
+        title: "Naruto Storm 4",
         category: "action",
-        cover: "https://via.placeholder.com/300x400/1a1a2e/ff6b6b?text=Naruto+Storm+4",
+        cover: "https://via.placeholder.com/400x500/1a0a2e/ff6b6b?text=Naruto+Storm+4",
         downloadUrl: "https://archive.org/download/naruto-storm4/naruto.pkg",
         size: "35 GB"
     },
-    // Adicione mais jogos aqui...
-];
+    {
+        id: 4,
+        title: "God of War Ragnarök",
+        category: "action",
+        cover: "https://via.placeholder.com/400x500/2e1a1a/ff4444?text=God+of+War",
+        downloadUrl: "https://archive.org/download/gow-ragnarok/gow.pkg",
+        size: "90 GB"
+    },
+    {
+        id: 5,
+        title: "FIFA 26",
+        category: "sports",
+        cover: "https://via.placeholder.com/400x500/0a2e1a/44ff44?text=FIFA+26",
+        downloadUrl: "https://archive.org/download/fifa26/fifa26.pkg",
+        size: "55 GB"
+    },
+    {
+        id: 6,
+        title: "Spider-Man 2",
+        category: "adventure",
+        cover: "https://via.placeholder.com/400x500/1a0a0a/ff0000?text=Spider-Man+2",
+        downloadUrl: "https://archive.org/download/spiderman2/spiderman2.pkg",
+        size: "75 GB"
+    }];
 
 let currentFilter = 'all';
 
-// Carregar jogos ao iniciar
 document.addEventListener('DOMContentLoaded', () => {
     renderGames(games);
 });
@@ -39,27 +60,29 @@ function renderGames(gamesToRender) {
     grid.innerHTML = '';
 
     if (gamesToRender.length === 0) {
-        grid.innerHTML = '<div class="no-results">Nenhum jogo encontrado 😢</div>';
+        grid.innerHTML = '<div class="no-results">🎮 Nenhum jogo encontrado 😢</div>';
         return;
     }
 
-    gamesToRender.forEach(game => {
-        const card = createGameCard(game);
+    gamesToRender.forEach((game, index) => {
+        const card = createGameCard(game, index);
         grid.appendChild(card);
     });
 }
-function createGameCard(game) {
+
+function createGameCard(game, index) {
     const card = document.createElement('div');
     card.className = 'game-card';
+    card.style.animationDelay = `${index * 0.1}s`;
     
     card.innerHTML = `
-        <img src="${game.cover}" alt="${game.title}" class="game-cover">
+        <img src="${game.cover}" alt="${game.title}" class="game-cover" onerror="this.src='https://via.placeholder.com/400x500/1a1a2e/ffffff?text=${encodeURIComponent(game.title)}'">
         <div class="game-info">
             <h3 class="game-title">${game.title}</h3>
             <span class="game-category">${getCategoryName(game.category)}</span>
-            <p style="margin: 10px 0; color: #888;">📦 ${game.size}</p>
+            <p class="game-size">📦 ${game.size}</p>
             <button class="download-btn" onclick="downloadGame('${game.downloadUrl}', '${game.title}')">
-                ⬇️ Baixar PKG
+                ⬇️ Baixar Agora
             </button>
         </div>
     `;
@@ -73,15 +96,13 @@ function getCategoryName(category) {
         'sports': '⚽ Esportes',
         'adventure': '🗡️ Aventura',
         'racing': '🏎️ Corrida',
-        'rpg': '⚔️ RPG'
+        'rpg': '⚔️ RPG',        'fighting': '👊 Luta'
     };
     return categories[category] || category;
 }
 
 function downloadGame(url, title) {
-    // Mostra confirmação
-    if (confirm(`Deseja baixar ${title}?\n\nO PS4 irá iniciar o download automaticamente!`)) {
-        // Abre o link - o PS4 vai detectar o .pkg e iniciar a instalação
+    if (confirm(`🎮 ${title}\n\nDeseja iniciar o download?\nO PS4 irá instalar automaticamente!`)) {
         window.location.href = url;
     }
 }
@@ -96,10 +117,10 @@ function searchGames() {
     
     renderGames(filtered);
 }
+
 function filterBy(category) {
     currentFilter = category;
     
-    // Atualiza botões ativos
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.remove('active');
     });
@@ -113,7 +134,6 @@ function filterBy(category) {
     }
 }
 
-// Busca ao pressionar Enter
 document.getElementById('searchInput')?.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         searchGames();
