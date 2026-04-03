@@ -332,3 +332,56 @@ h1 {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(45deg, #7b2cbf, #00d4ff);
 }
+
+/* Grupo de botões */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.download-btn,
+.update-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.95em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.download-btn {
+    background: linear-gradient(45deg, #00d4ff, #7b2cbf);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+}
+
+.update-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ffa502);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.update-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
+    background: linear-gradient(45deg, #ffa502, #ff6b6b);
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 400px) {
+    .button-group {
+        flex-direction: column;
+    }
+}
