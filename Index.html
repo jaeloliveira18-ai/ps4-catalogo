@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS4 Game Catalog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 PS4 Game Catalog</h1>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Pesquisar jogos...">
+                <button onclick="searchGames()">🔍 Buscar</button>
+            </div>
+        </header>
+
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterBy('all')">Todos</button>
+            <button class="filter-btn" onclick="filterBy('action')">Ação</button>
+            <button class="filter-btn" onclick="filterBy('sports')">Esportes</button>
+            <button class="filter-btn" onclick="filterBy('adventure')">Aventura</button>
+        </div>
+
+        <div id="gamesGrid" class="games-grid">
+            <!-- Jogos serão inseridos aqui via JavaScript -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
