@@ -5,10 +5,27 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    background-attachment: fixed;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
     min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Efeito de partículas no fundo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 .container {
@@ -17,157 +34,301 @@ body {
     padding: 20px;
 }
 
+/* Header estilizado */
 header {
     text-align: center;
-    margin-bottom: 40px;
-    padding: 30px;
+    margin-bottom: 50px;
+    padding: 40px 30px;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.8s ease;
+}
+
+@keyframes slideDown {    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    background: linear-gradient(45deg, #00d4ff, #7b2cbf);
+    font-size: 3.5em;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, #00d4ff, #7b2cbf, #ff006e);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: gradientFlow 3s ease infinite, glow 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    letter-spacing: 2px;
 }
 
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6)); }
+    to { filter: drop-shadow(0 0 30px rgba(123, 44, 191, 0.8)); }
+}
+
+/* Barra de pesquisa */
 .search-box {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
+    animation: fadeIn 1s ease 0.3s both;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .search-box input {
-    flex: 1;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;    background: rgba(255, 255, 255, 0.1);
+    flex: 1;    padding: 18px 30px;
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.1);
     color: #fff;
     outline: none;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
 }
 
 .search-box input::placeholder {
-    color: #aaa;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search-box input:focus {
+    border-color: #00d4ff;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+    transform: scale(1.02);
 }
 
 .search-box button {
-    padding: 15px 30px;
+    padding: 18px 40px;
     border: none;
-    border-radius: 30px;
+    border-radius: 50px;
     background: linear-gradient(45deg, #00d4ff, #7b2cbf);
     color: #fff;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
 }
 
 .search-box button:hover {
-    transform: scale(1.05);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.6);
 }
 
+/* Filtros */
 .filters {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     flex-wrap: wrap;
+    animation: fadeIn 1s ease 0.5s both;
 }
-
 .filter-btn {
-    padding: 10px 25px;
-    border: 2px solid #00d4ff;
-    background: transparent;
+    padding: 12px 30px;
+    border: 2px solid rgba(0, 212, 255, 0.5);
+    background: rgba(0, 212, 255, 0.1);
     color: #fff;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s;
+    font-size: 16px;
+    backdrop-filter: blur(10px);
 }
 
-.filter-btn:hover,
+.filter-btn:hover {
+    background: rgba(0, 212, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+}
+
 .filter-btn.active {
-    background: #00d4ff;
-    color: #1a1a2e;
+    background: linear-gradient(45deg, #00d4ff, #7b2cbf);
+    border-color: transparent;
+    box-shadow: 0 5px 20px rgba(0, 212, 255, 0.5);
 }
 
+/* Grid de jogos */
 .games-grid {
-    display: grid;    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 35px;
+    animation: fadeIn 1s ease 0.7s both;
 }
 
+/* Cards dos jogos */
 .game-card {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    border-radius: 20px;
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    animation: cardAppear 0.6s ease backwards;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 .game-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.4);
+    border-color: rgba(0, 212, 255, 0.5);
 }
 
 .game-cover {
     width: 100%;
-    height: 350px;
+    height: 380px;
     object-fit: cover;
-    background: #2a2a4a;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    transition: transform 0.4s;
+}
+
+.game-card:hover .game-cover {
+    transform: scale(1.05);
 }
 
 .game-info {
-    padding: 20px;
+    padding: 25px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
 }
 
 .game-title {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #00d4ff;
+    font-size: 1.4em;
+    margin-bottom: 12px;
+    background: linear-gradient(45deg, #00d4ff, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
 }
 
 .game-category {
     display: inline-block;
-    padding: 5px 15px;
-    background: rgba(123, 44, 191, 0.3);
-    border-radius: 15px;
-    font-size: 0.85em;
+    padding: 6px 18px;
+    background: linear-gradient(45deg, rgba(123, 44, 191, 0.4), rgba(0, 212, 255, 0.4));
+    border-radius: 20px;
+    font-size: 0.9em;
     margin-bottom: 15px;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.game-size {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 10px 0;    font-size: 0.95em;
 }
 
 .download-btn {
     width: 100%;
-    padding: 12px;
+    padding: 15px;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     background: linear-gradient(45deg, #00d4ff, #7b2cbf);
-    color: #fff;    font-size: 1em;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
     cursor: pointer;
-    transition: opacity 0.3s;
+    transition: all 0.3s;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
 }
 
 .download-btn:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+    background: linear-gradient(45deg, #7b2cbf, #00d4ff);
 }
 
+/* Mensagem de nenhum resultado */
 .no-results {
     text-align: center;
     grid-column: 1 / -1;
-    padding: 50px;
-    font-size: 1.5em;
-    color: #888;
+    padding: 80px 20px;
+    font-size: 1.8em;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
 }
 
-@media (max-width: 768px) {
+/* Responsivo para PS4 e TVs */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1800px;
+        padding: 40px;
+    }
+    
     h1 {
-        font-size: 2em;
+        font-size: 4em;
     }
     
     .games-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 40px;    }
+}
+
+/* Para telas menores */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2em;
     }
+    
+    .search-box {
+        flex-direction: column;
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    
+    .game-cover {
+        height: 300px;
+    }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #00d4ff, #7b2cbf);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #7b2cbf, #00d4ff);
 }
